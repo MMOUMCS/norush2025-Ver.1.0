@@ -1,6 +1,6 @@
-# 🚇 NoRush
+# 🚇 NoRush (졸업작품)
 
-> 지하철 혼잡도를 예측하는 대중교통 경로 추천 서비스
+> 서울교통공사 및 SK OpenAPI 기반 지하철 칸별 혼잡도 예측 및 경로 안내 시스템
 
 ---
 
@@ -32,11 +32,44 @@
 
 를 비교하여 추천받을 수 있습니다.
 
+
+## 📅 Project Overview
+
+| 항목 | 상세 내용 |
+| :--- | :--- |
+| **개발 인원** | 팀 프로젝트 (총 6인 개발) |
+| **주요 역할** | AI 모델링, 데이터 엔지니어링 및 백엔드 API(엔드포인트) 구현 |
+| **서비스 환경** | 모바일 앱 (Android / iOS 지원 환경) |
+| **소스 코드** | [[Backend Repository](https://github.com/MMOUMCS/norush2025-Ver.1.0) / [Frontend Repository](https://github.com/MMOUMCS/NoRush_Front-Ver.1.0) / [AI Repository](https://github.com/MMOUMCS/norush2025-ai-Ver.1.0)] |
+
+*이후 AI의 실제 모델.apk는 huggingface로 이전했습니다.*
+
+# 🛠️ 담당 업무 및 성과
+**다기능 데이터 전처리 및 데이터셋 구축** <br>
+서울교통공사(역별 데이터)와 SK 행정 데이터(칸별 데이터)를 수집하여 데이터 결합 및 정제 수행. <br>
+평균 제곱근 오차 평가 기반(예측 결과의 평균오차 평가)의 Random Forest 모델(조건부 데이터를 의사결정에 반영하기 위함)을 활용하여 역별/호선별 승하차 인원을 예측하고, 범주형 변수(호선, 역 이름)의 수치 인코딩 처리. <br> 
+혼잡도 예측 정확도를 높이기 위해 독립변수(시간대, 역 정보, 노선 더미)와 가중치 타깃 변수(평균 승객수)를 정의하고, 환승역·업무 지구 여부 및 피크 타임(07-08시, 18-19시) 가중치 피처 엔지니어링 적용.<br>
+
+**예측 모델 서빙 및 백엔드 엔드포인트 구현**<br>
+출발역, 도착역, 노선, 탑승 시간을 입력받아 1~10호차의 칸별 승객수 및 혼잡도를 산출하는 AI 예측 API 엔드포인트 구현.<br>
+Kakao Maps API를 연동하여 지도 상에 최적 경로 및 역별 실시간 혼잡도 시각화 데이터를 프론트엔드에 정합성 있게 서빙.<br>
+
+**Full-Stack 연동 및 데이터 흐름 최적화**<br>
+Postman을 활용하여 백엔드 REST API의 HTTP 메서드(GET/POST)별 데이터 정합성을 검증하고 프론트엔드-백엔드 간 밀결합 연동 총괄.<br>
+별도의 무거운 DB 트랜잭션 없이 실시간성을 보장하기 위해, 사용자가 지정한 출발지/목적지 기반의 실시간 재검색 방식의 경량화된 즐겨찾기 라우팅 로직 구현.<br>
+
+**Render 서버 배포**<br>
+
 ---
 
 # 🦾 주요 기능
 
+## 로그인/회원가입
+<img width="380" height="824" alt="GIF_20251117_012724_776 (1)" src="https://github.com/user-attachments/assets/b397ac41-dfe9-4f57-accd-55277354ae05" />
+<img width="380" height="824" alt="GIF_20251117_012753_076 (1)" src="https://github.com/user-attachments/assets/c7c19c01-7242-4951-a465-1cf1c6bb26b1" />
+
 ## 🧭 혼잡도 기반 경로 추천
+<img width="380" height="824" alt="GIF_20251117_012853_591 (1)" src="https://github.com/user-attachments/assets/84c3f98b-e394-47ee-9e1f-282f00e7f7a1" />
 
 대중교통 API와 AI 예측 서버를 활용하여
 
@@ -46,6 +79,7 @@
 
 를 계산하고 **혼잡도 + 소요 시간 기반 추천 경로**를 제공합니다.
 
+<img width="380" height="824" alt="GIF_20251117_013318_514 (1)" src="https://github.com/user-attachments/assets/a98a7b2f-e22d-4b57-89a1-8588b16267f5" />
 
 ---
 
@@ -63,9 +97,13 @@ Backend에서 실시간으로 호출합니다.
 
 ---
 
+## 예외처리
+<img width="380" height="824" alt="GIF_20251117_012834_563 (1)" src="https://github.com/user-attachments/assets/1180744c-c63f-4bfb-b04c-f2b4d0e0f5e7" />
+
+
 ## 🗺️ 경로 및 혼잡도 시각화
 
-[프론트엔드](https://github.com/jeongmin24/norush2025_fe)에서는 모바일 환경에서 사용자가 직관적으로 확인할 수 있도록
+프론트엔드에서는 모바일 환경에서 사용자가 직관적으로 확인할 수 있도록
 
 - 지도 기반 경로 표시
 - 혼잡도 색상 표시
@@ -93,7 +131,7 @@ Backend에서 실시간으로 호출합니다.
 - **Main Backend (Spring Boot)**  
   사용자 인증, 즐겨찾기 관리, 서비스 로직
 
-- **[AI Predict Server (Python/FastAPI)](https://github.com/jeongmin24/norush2025-ai)**  
+- **AI Predict Server (Python/FastAPI)**  
   혼잡도 예측 모델 API 제공
 
 AI 서버는 **Render**를 통해 독립 배포됩니다.
