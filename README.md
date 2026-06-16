@@ -42,7 +42,7 @@
 | **서비스 환경** | 모바일 앱 (Android / iOS 지원 환경) |
 | **소스 코드** | [[Backend Repository](https://github.com/MMOUMCS/norush2025-Ver.1.0) / [Frontend Repository](https://github.com/MMOUMCS/NoRush_Front-Ver.1.0) / [AI Repository](https://github.com/MMOUMCS/norush2025-ai-Ver.1.0)] |
 
-*이후 AI의 실제 모델.apk는 huggingface로 이전했습니다.*
+*이후 AI의 실제 모델.apk는 huggingface로 이전했습니다. AI 모델에 관한 설명은 AI 레포지토리에 저장하였습니다.*
 
 # 🛠️ 담당 업무 및 성과
 **다기능 데이터 전처리 및 데이터셋 구축** <br>
