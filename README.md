@@ -40,7 +40,7 @@
 | **개발 인원** | 팀 프로젝트 (총 6인 개발) |
 | **주요 역할** | AI 모델링, 데이터 엔지니어링 및 백엔드 API(엔드포인트) 구현 |
 | **서비스 환경** | 모바일 앱 (Android / iOS 지원 환경) |
-| **소스 코드** | [[Backend Repository](https://github.com/MMOUMCS/norush2025-Ver.1.0) / [Frontend Repository](https://github.com/MMOUMCS/NoRush_Front-Ver.1.0) / [AI Repository](https://github.com/MMOUMCS/norush2025-ai-Ver.1.0)] |
+| **소스 코드** | [[Backend Repository](https://github.com/MMOUMCS/norush2025-Ver.1.0) / [Frontend Repository](https://github.com/MMOUMCS/NoRush_Front-Ver.1.0) / [AI Repository](https://github.com/MMOUMCS/norush2025-ai-Ver.1.0)] / [R&D/D&D](https://docs.google.com/document/d/1NO4FZeqHxMwq0w8IVQOexi5_MjpoyUYkqVkCd4pYaXU/edit?usp=drivesdk)|
 
 *이후 AI의 실제 모델.apk는 huggingface로 이전했습니다. AI 모델에 관한 설명은 AI 레포지토리에 저장하였습니다.*
 
